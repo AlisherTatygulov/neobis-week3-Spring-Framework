@@ -1,34 +1,21 @@
-package com.neobis.springbootdemo.entity;
+package com.neobis.springbootdemo.dto;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "customers")
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+
+
+public class CustomerDTO {
+
     private Long customerId;
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "address")
     private String address;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "phone_number")
     private String phoneNumber;
-
-    public Customer() {
+    public CustomerDTO() {
     }
 
-    public Customer(String firstName, String lastName, String address, String email, String phoneNumber) {
+    public CustomerDTO(Long id,String firstName, String lastName, String address, String email, String phoneNumber) {
+        this.customerId = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -82,18 +69,6 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerId=" + customerId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
     }
 }
 
